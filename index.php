@@ -31,12 +31,16 @@
             <?php
             include 'database.php';
             $pdo = Database::connect();
-            $sql = 'SELECT * FROM CRUD_Jugador natural join CRUD_Equipo ORDER BY idjugador';
+            $sql = "SELECT J.idjugador, J.nombres AS 'Nombre Jugador', J.apellidos AS 'Apellidos Jugador', E.equipo AS 'Equipo', J.numero AS 'Número', J.estado AS 'Estado' FROM CRUD_Jugador AS J JOIN CRUD_Equipo AS E ON J.idequipo = E.idequipo ORDER BY J.idjugador;";
             foreach ($pdo->query($sql) as $row) {
                 echo '<tr>';
-                echo '<td>'. $row['equipo'] . '</td>';
-                echo '<td>'. $row['nombres'] . '</td>';
-                echo '<td>';    echo ($row['estado'])?"Activo":"Inactivo"; echo'</td>';
+                echo '<td>'. $row['idjugador'] . '</td>';
+                echo '<td>'. $row['Nombres Jugador'] . '</td>';
+                echo '<td>'. $row['Apellidos Jugador'] . '</td>';
+                echo '<td>'. $row['Equipo'] . '</td>';
+                echo '<td>'. $row['Número'] . '</td>';
+                echo '<td>';    echo ($row['Estado'])?"activo":"inactivo"; echo'</td>';
+
                 echo '<td width=250>';
                 echo '<a class="btn" href="read.php?id='.$row['idjugador'].'">Detalles</a>';
                 echo '&nbsp;';
