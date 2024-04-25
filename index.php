@@ -11,20 +11,22 @@
 <div class="container">
 
     <div class="row">
-        <h3>Ejemplo de operaciones básicas a una tabla de autos</h3>
+        <h3>Ejemplo de operaciones básicas a una tabla de jugadores</h3>
     </div>
 
     <div class="row">
         <p>
-            <a href="create.php" class="btn btn-success">Agregar un Auto</a>
+            <a href="create.php" class="btn btn-success">Agregar un jugador</a>
         </p>
 
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
-                <th>submarcamarca	</th>
-                <th>marca 				</th>
-                <th>A/C 					</th>
+                <th>Nombres	</th>
+                <th>Apellidos				</th>
+                <th>Equipo					</th>
+                <th>Estado					</th>
+                <th>Número				</th>
             </tr>
             </thead>
             <tbody>
@@ -40,7 +42,6 @@
                 echo '<td>'. $row['Equipo'] . '</td>';
                 echo '<td>'. $row['Número'] . '</td>';
                 echo '<td>';    echo ($row['Estado'])?"activo":"inactivo"; echo'</td>';
-
                 echo '<td width=250>';
                 echo '<a class="btn" href="read.php?id='.$row['idjugador'].'">Detalles</a>';
                 echo '&nbsp;';
