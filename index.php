@@ -25,6 +25,7 @@
                 <th>Numero de Equipo	</th>
                 <th>Nombre de Equipo				</th>
                 <th>Inscritos en					</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
