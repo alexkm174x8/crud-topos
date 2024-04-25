@@ -16,7 +16,7 @@
 
     <div class="row">
         <p>
-            <a href="create.php" class="btn btn-success">Agregar un equipo</a>
+            <a href="createEquipos.php" class="btn btn-success">Agregar un equipo</a>
         </p>
 
         <table class="table table-striped table-bordered">
@@ -41,7 +41,7 @@
                 echo '<td width=250>';
                 echo '<a class="btn" href="jugadores.php?id='.$row['Numero de equipo'].'">Detalles</a>';
                 echo '&nbsp;';
-                echo '<a class="btn btn-danger" href="delete2.php?id='.$row['Numero de equipo'].'">Eliminar</a>';
+                echo '<a class="btn btn-danger" href="delete.php?id='.$row['Numero de equipo'].'">Eliminar</a>';
                 echo '</td>';
                 echo '</tr>';
             }

@@ -7,7 +7,7 @@
 
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "DELETE FROM CRUD_Jugador WHERE idjugador = ?";
+		$sql = "DELETE FROM CRUD_Equipo WHERE idEquipo = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id));
 		Database::disconnect();
