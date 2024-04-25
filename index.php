@@ -16,7 +16,7 @@
 
     <div class="row">
         <p>
-            <a href="create.php" class="btn btn-success">Agregar un jugador</a>
+            <a href="create.php" class="btn btn-success">Agregar un equipo</a>
         </p>
 
         <table class="table table-striped table-bordered">
