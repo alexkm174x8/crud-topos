@@ -13,7 +13,7 @@
 		   			<h3>Agregar un nuevo equipo</h3>
 		   		</div>
 
-					<form class="form-horizontal" action="create2.php" method="post">
+					<form class="form-horizontal" action="createEquipos2.php" method="post">
     					<div class="control-group">
         					<label class="control-label">Nombre de equipo</label>
         					<div class="controls">
@@ -30,7 +30,7 @@
     					</div>
     					<div class="form-actions">
         					<button type="submit" class="btn btn-success">Agregar</button>
-      					  <a class="btn" href="index.php">Regresar</a>
+      						<a class="btn" href="index.php">Regresar</a>
     					</div>
 					</form>
 				</div>

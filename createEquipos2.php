@@ -1,8 +1,8 @@
 <?php
 include 'database.php';
 
-	if ( !empty($_POST)) {
-		$nombreEquipo = $_POST['nombre'];
+    if (!empty($_POST['nombre']) && !empty($_POST['fecha'])) {
+        $nombreEquipo = $_POST['nombre'];
         $fechaIngreso = $_POST['fecha'];
 
 		$pdo = Database::connect();
@@ -20,4 +20,8 @@ include 'database.php';
         Database::disconnect();
         header("Location: index.php");
 	}
+    else{
+        echo "<script>alert('Por favor, complete todos los campos.'); window.location.href = 'createEquipos.php';</script>";
+
+    }
 ?>
