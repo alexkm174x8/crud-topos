@@ -46,12 +46,18 @@
             </thead>
             <tbody>
             <?php
-            $pdo = Database::connect();
-            $sql = "SELECT j.nombres, j.apellidos, e.equipo AS nombre_equipo, j.numero, j.estado 
-            FROM CRUD_Jugador j 
-            INNER JOIN CRUD_Equipo e ON j.idequipo = e.idequipo";
-    
-                foreach ($pdo->query($sql) as $row) {
+                $pdo = Database::connect();
+                $team_id = $_GET['id'];
+
+                $sql = "SELECT j.nombres, j.apellidos, e.equipo AS nombre_equipo, j.numero, j.estado 
+                FROM CRUD_Jugador j 
+                INNER JOIN CRUD_Equipo e ON j.idequipo = e.idequipo
+                WHERE j.idequipo = ?";
+
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$team_id]);
+
+                foreach ($stmt as $row) {
                 echo '<tr>';
                 echo '<td>'. $row['nombres'] . '</td>';
                 echo '<td>'. $row['apellidos'] . '</td>';
@@ -60,7 +66,7 @@
                 echo '<td>'. $row['estado'] . '</td>'; 
                 echo '<td width=250>';
                 echo '&nbsp;';
-                echo '<a class="btn btn-danger" href="delete2.php?id='.$row['numero'].'">Eliminar</a>';
+                echo '<a class="btn btn-danger" href="deleteJugadores.php?id='.$row['numero'].'">Eliminar</a>';
                 echo '</tr>';
             }
             Database::disconnect();
