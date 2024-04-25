@@ -11,7 +11,7 @@
 <div class="container">
 
     <div class="row">
-        <h3>Ejemplo de operaciones básicas a una tabla de jugadores</h3>
+        <h3>Equipos Inscritos</h3>
     </div>
 
     <div class="row">
@@ -22,32 +22,25 @@
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
-                <th>Nombres	</th>
-                <th>Apellidos				</th>
-                <th>Equipo					</th>
-                <th>Estado					</th>
-                <th>Número				</th>
+                <th>Numero de Equipo	</th>
+                <th>Nombre de Equipo				</th>
+                <th>Inscritos en					</th>
             </tr>
             </thead>
             <tbody>
             <?php
             include 'database.php';
             $pdo = Database::connect();
-            $sql = "SELECT J.idjugador, J.nombres AS 'Nombre Jugador', J.apellidos AS 'Apellidos Jugador', E.equipo AS 'Equipo', J.numero AS 'Número', J.estado AS 'Estado' FROM CRUD_Jugador AS J JOIN CRUD_Equipo AS E ON J.idequipo = E.idequipo ORDER BY J.idjugador;";
+            $sql = "SELECT idequipo AS 'Numero de equipo', equipo AS 'Nombre de Equipo', creacion AS 'Inscritos en' FROM CRUD_Equipo";
             foreach ($pdo->query($sql) as $row) {
                 echo '<tr>';
-                echo '<td>'. $row['idjugador'] . '</td>';
-                echo '<td>'. $row['Nombres Jugador'] . '</td>';
-                echo '<td>'. $row['Apellidos Jugador'] . '</td>';
-                echo '<td>'. $row['Equipo'] . '</td>';
-                echo '<td>'. $row['Número'] . '</td>';
-                echo '<td>';    echo ($row['Estado'])?"activo":"inactivo"; echo'</td>';
+                echo '<td>'. $row['Numero de equipo'] . '</td>';
+                echo '<td>'. $row['Nombre de Equipo'] . '</td>';
+                echo '<td>'. $row['Inscritos en'] . '</td>';
                 echo '<td width=250>';
-                echo '<a class="btn" href="read.php?id='.$row['idjugador'].'">Detalles</a>';
+                echo '<a class="btn" href="jugadores.php?id='.$row['Numero de equipo'].'">Detalles</a>';
                 echo '&nbsp;';
-                /*echo '<a class="btn btn-success" href="update.php?id='.$row['idjugador'].'">Actualizar</a>';
-                 echo '&nbsp;';*/
-                echo '<a class="btn btn-danger" href="delete2.php?id='.$row['idjugador'].'">Eliminar</a>';
+                echo '<a class="btn btn-danger" href="delete2.php?id='.$row['Numero de equipo'].'">Eliminar</a>';
                 echo '</td>';
                 echo '</tr>';
             }
