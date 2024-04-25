@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `CRUD_Equipo`(
     idequipo INT, 
     equipo VARCHAR(60), 
     creacion YEAR, 
-    PRIMARY kEY (idequipo);
+    PRIMARY KEY (idequipo)
 );
 
 
