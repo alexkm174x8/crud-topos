@@ -1,9 +1,10 @@
 <?php
 class Database {
-    private static $dbName = 'crud-topos-pruebas' ;
+    private static $dbName = 'equipo' ;
+    private static $dbName = 'TC2005B_601_06' ;
     private static $dbHost = 'localhost' ;
-    private static $dbUsername = 'root';
-    private static $dbUserPassword = 'a01734271';
+    private static $dbUsername = 'TC2005B_601_06@10.50.70.236';
+    private static $dbUserPassword = '.R=dupHImJYg';
 
     private static $cont  = null;
 

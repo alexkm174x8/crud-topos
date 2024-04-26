@@ -36,6 +36,7 @@
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
+                <th>ID del Jugador</th>
                 <th>Nombres	</th>
                 <th>Apellidos				</th>
                 <th>Equipo					</th>
@@ -49,7 +50,7 @@
                 $pdo = Database::connect();
                 $team_id = $_GET['id'];
 
-                $sql = "SELECT j.nombres, j.apellidos, e.equipo AS nombre_equipo, j.numero, j.estado 
+                $sql = "SELECT j.idjugador, j.nombres, j.apellidos, e.equipo AS nombre_equipo, j.numero, j.estado 
                 FROM CRUD_Jugador j 
                 INNER JOIN CRUD_Equipo e ON j.idequipo = e.idequipo
                 WHERE j.idequipo = ?";
@@ -59,6 +60,7 @@
 
                 foreach ($stmt as $row) {
                 echo '<tr>';
+                echo '<td>'. $row['idjugador'] . '</td>';
                 echo '<td>'. $row['nombres'] . '</td>';
                 echo '<td>'. $row['apellidos'] . '</td>';
                 echo '<td>'. $row['nombre_equipo'] . '</td>';
@@ -66,7 +68,7 @@
                 echo '<td>'. $row['estado'] . '</td>'; 
                 echo '<td width=250>';
                 echo '&nbsp;';
-                echo '<a class="btn btn-danger" href="deleteJugadores.php?id='.$row['numero'].'">Eliminar</a>';
+                echo '<a class="btn btn-danger" href="deleteJugadores.php?id='.$row['idjugador'].'">Eliminar</a>';
                 echo '</tr>';
             }
             Database::disconnect();
