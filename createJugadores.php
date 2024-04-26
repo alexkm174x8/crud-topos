@@ -13,7 +13,7 @@
 		   			<h3>Agregar un nuevo Jugador</h3>
 		   		</div>
 
-                   <form class="form-horizontal" action="create2.php" method="post">
+                   <form class="form-horizontal" action="createJugadores2.php?id=<?php if(isset($_GET['id'])) { $team_id=$_GET['id']; echo $team_id; } ?>" method="post">
                         <div class="control-group">
                             <label class="control-label">Nombre</label>
                             <div class="controls">
@@ -49,7 +49,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-success">Agregar jugador</button>
-                            <a class="btn" href="judadores.php">Regresar</a>
+                            <a class="btn" href="jugadores.php?id=<?php echo $team_id?>">Regresar</a>
                         </div>
 
 </form>
